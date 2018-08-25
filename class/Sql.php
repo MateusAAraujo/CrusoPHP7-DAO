@@ -14,22 +14,22 @@
         }
         
         //Método para reutilização do código para executar comando no BD.
-        private function setParams($statment, $parameters = array()) {
+        private function setParams($statement, $parameters = array()) {
             
             //Percorrendo o BD e recuperando
             foreach ($parameters as $key => $value) {
                 //chamando método setParam, para atualizar dados no bd.
-                $this->setParam($key, $value);
+                $this->setParam($statement, $key, $value);
             }
         }
         
         /*Executando comandos com um parâmetro no BD. Por ter apenas um parâmetro, podemos
          * receber os parâmetros no próprio método. Ou seja, passamos um parâmetro e
          * recebemos dois */
-        private function setParam($statment, $key, $value) {
+        private function setParam($statement, $key, $value) {
             
             //bind = associa (liga) parâmetro com o valor passado
-            $statment->bindParam($key, $value);
+            $statement->bindParam($key, $value);
         }
 
         //Executando comandos no BD.

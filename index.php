@@ -9,11 +9,21 @@
         <?php
            require_once ("config.php"); 
            
+           /*
+           //Conexão class Sql()
            $sql = new Sql();
            
            $usuarios = $sql->select("SELECT * FROM tb_usuarios");
            
            echo json_encode($usuarios);
+            * 
+            */
+           
+           //Conexão class Usuario()
+           $root = new Usuario();
+           $root->loadById(3);
+           
+           echo $root;
                    
         ?>
     </body>
