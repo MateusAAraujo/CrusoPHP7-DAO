@@ -40,12 +40,43 @@
            echo json_encode($search);
            */
            
+           /*
            //carrega um usuário usando o login e a senha
            $usuario = new Usuario();
            
            $usuario->login("root", "!@#$%");
            
            echo $usuario;
+           */
+           
+           /*
+           //Inserindo um usuário novo no BD
+           $aluno = new Usuario("aluno", "aluno");
+           
+           $aluno->insert();
+           
+           echo $aluno;
+           */
+           
+           /*
+           //Atualizando dados no BD
+           $usuario = new Usuario();
+           
+           $usuario->loadById(8);
+           
+           $usuario->update("professor", "!@#$%¨&*");
+           
+           echo $usuario;
+           */
+           
+           $usuario = new Usuario();
+           
+           $usuario->loadById(7);
+           
+           $usuario->delete();
+           
+           echo $usuario;
+           
            
            
         ?>
