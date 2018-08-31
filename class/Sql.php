@@ -13,7 +13,7 @@
             $this->conn = new PDO("mysql:host=localhost;dbname=dbphp7", "root", "");
         }
         
-        //Método para reutilização do código para executar comando no BD.
+        //Método criado para possibilitar a reutilização do código para executar comando no BD.
         private function setParams($statement, $parameters = array()) {
             
             //Percorrendo o BD e recuperando
@@ -34,10 +34,16 @@
 
         //Executando comandos no BD.
         public function query($rawQuery, $params = array()) {
-            //criando variável e atribuindo o resultado da consulta ao DB.
+            //criando variável local e atribuindo o resultado da consulta ao DB.
             $stmt = $this->conn->prepare($rawQuery);
 
-            //chamando método setParam
+            /* Poderiamos manter o forech aqui para percorrer o BD e recuperar as informações.
+             * Porém, para possamos reutilizar o código, criaremos o método ssetParams($statement, $parameters = array()).
+             * frorech($params as $key => value){
+             * $stmt->bindParam($key, $value);
+             * } */
+            
+            //chamando método setParams
             $this->setParams($stmt, $params);
             //executando a query
             $stmt->execute();
